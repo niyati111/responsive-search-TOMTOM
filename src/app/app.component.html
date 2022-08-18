@@ -1,0 +1,18 @@
+<div class="container-fluid py-3">
+  <h1 class="text-center">Building a Responsive Location Search Component with Angular</h1>
+  <p class="text-center">Current Latitude: {{currentLat}} </p>
+  <p class="text-center">Current longitude: {{currentLon}} </p>
+  <div class="d-flex">
+    <div class="search-wrapper">
+      <input type="text" class="form-control" (keyup)="getValue(search.value)" #search name="search"
+        placeholder="Search Locations" />
+      <div>
+        <ul class="resultList" *ngFor="let result of searchResults" class="list-group">
+          <li role="button" (click)="setPlaceLocation(result.position.lat,result.position.lon,result.poi.name)"
+            class="list-group-item cursor">{{result.poi.name}}</li>
+        </ul>
+      </div>
+    </div>
+    <div id="map" class="map"></div>
+  </div>
+</div>
